@@ -45,11 +45,16 @@ test:
 
 about:
   home: https://github.com/graphql-python/graphql-core
+  description: |
+    GraphQL-core 3 is a Python 3.6+ port of GraphQL.js, 
+    the JavaScript reference implementation for GraphQL, 
+    a query language for APIs created by Facebook.
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
-  doc_url: https://graphql-core-3.readthedocs.io
+  dev_url: https://graphql-core-3.readthedocs.io/en/latest/
+  doc_url: https://github.com/graphql-python/graphql-core/tree/main/docs
 
 extra:
   recipe-maintainers:
