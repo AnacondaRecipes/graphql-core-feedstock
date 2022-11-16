@@ -9,7 +9,7 @@ source:
   sha256: 9d1bf141427b7d54be944587c8349df791ce60ade2e3cccaf9c56368c133c201
 
 build:
-  noarch: python
+  skip: True  # [py<37]
   number: 0
   script:
     - python -c '__import__("os").unlink("pyproject.toml")'
