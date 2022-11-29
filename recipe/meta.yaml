@@ -21,6 +21,7 @@ requirements:
     - pip
     - setuptools
     - wheel
+    - poetry
   run:
     - python
     - typing_extensions >=4,<5
