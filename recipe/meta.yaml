@@ -32,18 +32,12 @@ test:
     - tests
   requires:
     - pytest >=6.2,<7
-    # - pytest-asyncio >=0.15,<1
     - pytest-benchmark >=3.4,<4
-    # - pytest-cov >=2.11,<3
-    # # This causes dependency chain issues. Do we need to keep it?
-    # # - pytest-describe >=1,<2
-    # - pytest-timeout >=1.4,<2
+
     - pip
   commands:
     - pip check
     - pytest
-    # - python -c '__import__("os").unlink("tests/test_docs.py")'
-    # - pytest --cov graphql --cov-report term-missing:skip-covered --no-cov-on-fail
 
 about:
   home: https://github.com/graphql-python/graphql-core
