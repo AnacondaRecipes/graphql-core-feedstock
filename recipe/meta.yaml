@@ -23,7 +23,7 @@ requirements:
     - poetry
   run:
     - python
-    - typing_extensions >=4,<5
+    - typing_extensions >=4.4  # [py<310]
 
 test:
   imports:
