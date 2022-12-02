@@ -1,4 +1,4 @@
-{% set version = "3.2.1" %}
+{% set version = "3.2.3" %}
 
 package:
   name: graphql-core
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/g/graphql-core/graphql-core-{{ version }}.tar.gz
-  sha256: 9d1bf141427b7d54be944587c8349df791ce60ade2e3cccaf9c56368c133c201
+  sha256: 06d2aad0ac723e35b1cb47885d3e5c45e956a53bc1b209a9fc5369007fe46676
 
 build:
-  noarch: python
+  skip: True  # [py<37]
   number: 0
   script:
     - python -c '__import__("os").unlink("pyproject.toml")'
@@ -17,11 +17,13 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - wheel
+    - poetry
   run:
-    - python >=3.6
-    - typing_extensions >=4
+    - python
+    - typing_extensions >=4.4  # [py<310]
 
 test:
   imports:
@@ -30,16 +32,11 @@ test:
     - tests
   requires:
     - pytest >=6.2,<7
-    - pytest-asyncio >=0.15,<1
     - pytest-benchmark >=3.4,<4
-    - pytest-cov >=2.11,<3
-    - pytest-describe >=1,<2
-    - pytest-timeout >=1.4,<2
     - pip
   commands:
     - pip check
-    - python -c '__import__("os").unlink("tests/test_docs.py")'
-    - pytest --cov graphql --cov-report term-missing:skip-covered --no-cov-on-fail
+    - pytest
 
 about:
   home: https://github.com/graphql-python/graphql-core
@@ -47,6 +44,11 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
+  description: |
+    GraphQL-core 3 is a Python 3.6+ port of GraphQL.js, 
+    the JavaScript reference implementation for GraphQL, 
+    a query language for APIs created by Facebook.
+  dev_url: https://github.com/graphql-python/graphql-core
   doc_url: https://graphql-core-3.readthedocs.io
 
 extra:
