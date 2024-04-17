@@ -13,14 +13,13 @@ build:
   number: 1
   script:
     - python -c '__import__("os").unlink("pyproject.toml")'
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - python
     - pip
     - wheel
-    - poetry
   run:
     - python
     - typing_extensions >=4.4  # [py<310]
