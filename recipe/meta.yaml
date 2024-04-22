@@ -31,8 +31,7 @@ test:
   source_files:
     - tests
   requires:
-    - pytest >=7.4,<8.1  # [py<38]
-    - pytest >=8.1       # [py>=38]
+    - pytest >=7.4,<8.1 
     - pytest-benchmark >=4.0.0
     - pip
   commands:
