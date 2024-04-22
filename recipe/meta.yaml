@@ -31,7 +31,7 @@ test:
     - tests
   requires:
     - pytest >=6.2,<7
-    - pytest-benchmark >=3.4,<4
+    - pytest-benchmark >=3.4,<=4.0.0
     - pip
   commands:
     - pip check
