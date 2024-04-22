@@ -18,7 +18,6 @@ requirements:
   host:
     - python
     - pip
-    - wheel
     - poetry_core >=1,<2
   run:
     - python
