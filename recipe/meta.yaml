@@ -18,7 +18,7 @@ requirements:
   host:
     - python
     - pip
-    - poetry_core >=1,<2
+    - poetry-core >=1,<2
   run:
     - python
     - typing-extensions >=4.7.1  # [py<38]
