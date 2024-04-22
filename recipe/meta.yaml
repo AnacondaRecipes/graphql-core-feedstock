@@ -19,7 +19,7 @@ requirements:
     - python
     - pip
     - wheel
-    - poetry-core >=1.0.0
+    - poetry_core >=1,<2
   run:
     - python
     - typing-extensions >=4.7.1  # [py<38]
