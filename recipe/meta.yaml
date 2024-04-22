@@ -12,7 +12,6 @@ build:
   skip: True  # [py<37]
   number: 1
   script:
-    - python -c '__import__("os").unlink("pyproject.toml")'
     - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
