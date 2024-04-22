@@ -22,7 +22,8 @@ requirements:
     - poetry-core >=1.0.0
   run:
     - python
-    - typing_extensions >=4.4  # [py<310]
+    - typing-extensions >=4.7.1  # [py<38]
+    - typing-extensions >=4.9    # [py>=38]
 
 test:
   imports:
@@ -30,8 +31,9 @@ test:
   source_files:
     - tests
   requires:
-    - pytest >=6.2,<7
-    - pytest-benchmark >=3.4,<=4.0.0
+    - pytest >=7.4,<8.1  # [py<38]
+    - pytest >=8.1       # [py>=38]
+    - pytest-benchmark >=4.0.0
     - pip
   commands:
     - pip check
