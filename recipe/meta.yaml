@@ -10,20 +10,18 @@ source:
 
 build:
   skip: True  # [py<37]
-  number: 0
+  number: 1
   script:
-    - python -c '__import__("os").unlink("pyproject.toml")'
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - python
     - pip
-    - wheel
-    - poetry
+    - poetry-core >=1,<2
   run:
     - python
-    - typing_extensions >=4.4  # [py<310]
+    - typing_extensions >=4.7.1  # [py<38]
 
 test:
   imports:
