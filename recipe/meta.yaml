@@ -1,16 +1,17 @@
+{% set name = "graphql-core" %}
 {% set version = "3.2.3" %}
 
 package:
-  name: graphql-core
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/g/graphql-core/graphql-core-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/graphql-core/graphql-core-{{ version }}.tar.gz
   sha256: 06d2aad0ac723e35b1cb47885d3e5c45e956a53bc1b209a9fc5369007fe46676
 
 build:
   skip: True  # [py<37]
-  number: 1
+  number: 2
   script:
     - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
@@ -29,8 +30,9 @@ test:
   source_files:
     - tests
   requires:
-    - pytest >=6.2,<7
-    - pytest-benchmark >=3.4,<4
+    - pytest >=6.2
+    - pytest-benchmark >=5.1, <6  # [py>=39]
+    - pytest-benchmark >=4.0, <5  # [py<39]
     - pip
   commands:
     - pip check
