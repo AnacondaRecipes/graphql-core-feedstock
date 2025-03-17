@@ -30,7 +30,7 @@ test:
   source_files:
     - tests
   requires:
-    - pytest >=6.2
+    - pytest >=6.2,<9
     - pytest-benchmark >=3.4,<6
     - pip
   commands:
