@@ -1,5 +1,5 @@
 {% set name = "graphql-core" %}
-{% set version = "3.2.6" %}
+{% set version = "3.2.7" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/graphql-core/graphql_core-{{ version }}.tar.gz
-  sha256: c08eec22f9e40f0bd61d805907e3b3b1b9a320bc606e23dc145eebca07c8fbab
+  sha256: 27b6904bdd3b43f2a0556dad5d579bdfdeab1f38e8e8788e555bdcb586a6f62c
 
 build:
-  skip: True  # [py<37]
+  skip: true  # [py<37]
   number: 0
   script:
     - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
@@ -19,10 +19,11 @@ requirements:
   host:
     - python
     - pip
-    - poetry-core >=1,<2
+    - poetry-core
+    - setuptools >=59,<81
   run:
     - python
-    - typing_extensions >=4.1,<5  # [py<310]
+    - typing_extensions >=4.7,<5  # [py<310]
 
 test:
   imports:
@@ -44,8 +45,8 @@ about:
   license_file: LICENSE
   summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
   description: |
-    GraphQL-core 3 is a Python 3.6+ port of GraphQL.js, 
-    the JavaScript reference implementation for GraphQL, 
+    GraphQL-core 3 is a Python 3.6+ port of GraphQL.js,
+    the JavaScript reference implementation for GraphQL,
     a query language for APIs created by Facebook.
   dev_url: https://github.com/graphql-python/graphql-core
   doc_url: https://graphql-core-3.readthedocs.io
