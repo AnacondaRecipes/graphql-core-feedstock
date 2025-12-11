@@ -1,25 +1,25 @@
 {% set name = "graphql-core" %}
-{% set version = "3.2.6" %}
+{% set version = "3.2.7" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/g/graphql-core/graphql_core-{{ version }}.tar.gz
-  sha256: c08eec22f9e40f0bd61d805907e3b3b1b9a320bc606e23dc145eebca07c8fbab
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
+  sha256: 27b6904bdd3b43f2a0556dad5d579bdfdeab1f38e8e8788e555bdcb586a6f62c
 
 build:
-  skip: True  # [py<37]
   number: 0
-  script:
-    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  skip: true  # [py<37]
 
 requirements:
   host:
     - python
     - pip
-    - poetry-core >=1,<2
+    - setuptools >=59,<81
+    - poetry-core >=1,<3
   run:
     - python
     - typing_extensions >=4.1,<5  # [py<310]
@@ -29,23 +29,23 @@ test:
     - graphql
   source_files:
     - tests
-  requires:
-    - pytest >=6.2,<9
-    - pytest-benchmark >=3.4,<6
-    - pip
   commands:
     - pip check
     - pytest
+  requires:
+    - pytest >=7.4,<9
+    - pytest-benchmark >=4.0,<6
+    - pip
 
 about:
   home: https://github.com/graphql-python/graphql-core
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
+  summary: GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL.
   description: |
-    GraphQL-core 3 is a Python 3.6+ port of GraphQL.js, 
-    the JavaScript reference implementation for GraphQL, 
+    GraphQL-core 3 is a Python 3.7+ port of GraphQL.js,
+    the JavaScript reference implementation for GraphQL,
     a query language for APIs created by Facebook.
   dev_url: https://github.com/graphql-python/graphql-core
   doc_url: https://graphql-core-3.readthedocs.io
