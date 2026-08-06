@@ -18,7 +18,7 @@ requirements:
   host:
     - python
     - pip
-    - poetry-core
+    - poetry-core >=1,<3
     - setuptools >=59,<83
   run:
     - python
@@ -33,9 +33,9 @@ test:
     - pip check
     - pytest
   requires:
-    - pytest >=7.4,<9
-    - pytest-benchmark >=4.0,<6
+    - pytest
     - pip
+    - pytest-benchmark >=5.2,<6
 
 about:
   home: https://github.com/graphql-python/graphql-core
